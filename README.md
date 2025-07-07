@@ -12,13 +12,7 @@ cd clothing-catalog-app
 
 ### 2. הגדר environment variables
 
-צור קובץ `.env` ברמת השורש:
-
-```bash
-cp .env.example .env
-```
-
-ועדכן עם הערכים שקיבלת בנפרד:
+צור קובץ `.env` ברמת השורש ועדכן עם הערכים שקיבלת בנפרד:
 
 ```
 MONGODB_URI=mongodb+srv://...
