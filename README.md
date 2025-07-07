@@ -1,5 +1,4 @@
-# Clothing Catalog App
-
+Clothing Catalog App
 אפליקציית קטלוג בגדים עם SvelteKit ו-MongoDB
 
 ## Quick Start
