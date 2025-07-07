@@ -1,30 +1,25 @@
-# Clothing Catalog App
-
+Clothing Catalog App
 אפליקציית קטלוג בגדים עם SvelteKit ו-MongoDB
-
-## Quick Start
-
-### 1. Clone הפרויקט
-```bash
-git clone <repository-url>
+Quick Start
+1. Clone הפרויקט
+bashgit clone <repository-url>
 cd clothing-catalog-app
-```
-### 2. הרץ עם Docker Compose
-```bash
-docker-compose up --build
-```
-
-האפליקציה תהיה זמינה ב: `http://localhost:3000`
-
-## Development (ללא Docker)
-```bash
-npm install
+2. הגדר environment variables
+צור קובץ .env ברמת השורש:
+bashcp .env.example .env
+ועדכן עם הערכים שקיבלת בנפרד:
+MONGODB_URI=mongodb+srv://...
+JWT_SECRET=...
+3. הרץ עם Docker Compose
+bashdocker-compose up --build
+האפליקציה תהיה זמינה ב: http://localhost:3000
+Development (ללא Docker)
+bashnpm install
 npm run dev
-```
-זמין ב: `http://localhost:5173`
+זמין ב: http://localhost:5173
+Features
 
-## Features
-- 🔐 הרשמה והתחברות
-- 👕 קטלוג בגדים
-- ❤️ מועדפים
-- ✏️ הוספה ועריכה של פריטים
+🔐 הרשמה והתחברות
+👕 קטלוג בגדים
+❤️ מועדפים
+✏️ הוספה ועריכה של פריטים
