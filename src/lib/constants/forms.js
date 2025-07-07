@@ -36,7 +36,7 @@ export const AUTH_FIELDS = {
 	}
 };
 
-export function getAuthFields(mode) {
+export const getAuthFields = (mode) => {
 	const baseFields = [AUTH_FIELDS.email, AUTH_FIELDS.password];
 
 	if (mode === 'register') {
@@ -44,7 +44,7 @@ export function getAuthFields(mode) {
 	}
 
 	return baseFields;
-}
+};
 
 export const ITEM_FIELDS = {
 	name: {

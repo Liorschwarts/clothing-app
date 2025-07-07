@@ -13,7 +13,7 @@ const VALIDATION_MESSAGES = {
 	NAME_REQUIRED: 'Name must contain at least 2 characters'
 };
 
-export function validateItemData(data) {
+export const validateItemData = (data) => {
 	const errors = [];
 
 	if (!data.name || data.name.trim().length < VALIDATION_RULES.NAME.MIN_LENGTH) {
@@ -56,9 +56,9 @@ export function validateItemData(data) {
 		isValid: errors.length === 0,
 		errors
 	};
-}
+};
 
-export function validateUserData(data, isLogin = false) {
+export const validateUserData = (data, isLogin = false) => {
 	const errors = [];
 
 	const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
@@ -80,4 +80,4 @@ export function validateUserData(data, isLogin = false) {
 		isValid: errors.length === 0,
 		errors
 	};
-}
+};

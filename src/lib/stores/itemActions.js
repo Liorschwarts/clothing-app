@@ -5,7 +5,7 @@ import { toggleItemLike, deleteItem } from '$lib/utils/api.js';
 import { modals } from './modals.js';
 import { UI_TEXTS } from '$lib/constants/texts.js';
 
-function createErrorHandler(onError) {
+const createErrorHandler = (onError) => {
 	return (error) => {
 		const message = error.message || UI_TEXTS.MESSAGES.ITEM_DELETION_FAILED;
 		if (onError) {
@@ -14,12 +14,12 @@ function createErrorHandler(onError) {
 			alert(message);
 		}
 	};
-}
+};
 
-export function createItemActions(defaultErrorHandler = null) {
+export const createItemActions = (defaultErrorHandler = null) => {
 	const handleError = createErrorHandler(defaultErrorHandler);
 
-	async function handleToggleLike(itemId) {
+	const handleToggleLike = async (itemId) => {
 		const currentUser = get(user);
 		if (!currentUser) {
 			return;
@@ -34,9 +34,9 @@ export function createItemActions(defaultErrorHandler = null) {
 			console.error('Failed to toggle like:', error);
 			handleError(error);
 		}
-	}
+	};
 
-	async function handleDelete(item, onSuccess = null, onError = null) {
+	const handleDelete = async (item, onSuccess = null, onError = null) => {
 		const confirmMessage = `${UI_TEXTS.MESSAGES.DELETE_CONFIRMATION} "${item.name}"?`;
 		if (!confirm(confirmMessage)) return;
 
@@ -51,19 +51,19 @@ export function createItemActions(defaultErrorHandler = null) {
 			const errorHandler = onError || handleError;
 			errorHandler(error);
 		}
-	}
+	};
 
-	function handleEdit(item) {
+	const handleEdit = (item) => {
 		modals.open('editItem', item);
-	}
+	};
 
-	function handleAddItem() {
+	const handleAddItem = () => {
 		modals.open('addItem');
-	}
+	};
 
-	function closeModal(modalId) {
+	const closeModal = (modalId) => {
 		modals.close(modalId);
-	}
+	};
 
 	return {
 		handleToggleLike,
@@ -72,4 +72,4 @@ export function createItemActions(defaultErrorHandler = null) {
 		handleAddItem,
 		closeModal
 	};
-}
+};

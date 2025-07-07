@@ -9,7 +9,7 @@ import { API_MESSAGES } from '$lib/constants/api.js';
 import { CATEGORY_TYPES } from '$lib/constants/categories.js';
 import { DATABASE, getDB } from '$lib/server/config.js';
 
-export async function GET({ params }) {
+export const GET = async ({ params }) => {
 	try {
 		const item = await getItemById(params.id);
 
@@ -32,9 +32,9 @@ export async function GET({ params }) {
 		if (err.status) throw err;
 		throw error(500, API_MESSAGES.ERRORS.ITEM_NOT_FOUND);
 	}
-}
+};
 
-export async function PUT({ params, request, cookies }) {
+export const PUT = async ({ params, request, cookies }) => {
 	try {
 		const userId = await requireAuth(cookies);
 		const item = await requireItemOwnership(params.id, userId);
@@ -66,9 +66,9 @@ export async function PUT({ params, request, cookies }) {
 		if (err.status) throw err;
 		throw error(500, API_MESSAGES.ERRORS.UPDATE_ITEM_FAILED);
 	}
-}
+};
 
-export async function DELETE({ params, cookies }) {
+export const DELETE = async ({ params, cookies }) => {
 	try {
 		const userId = await requireAuth(cookies);
 		await requireItemOwnership(params.id, userId);
@@ -88,4 +88,4 @@ export async function DELETE({ params, cookies }) {
 		if (err.status) throw err;
 		throw error(500, API_MESSAGES.ERRORS.DELETE_ITEM_FAILED);
 	}
-}
+};

@@ -7,7 +7,7 @@ import { createSuccessResponse } from '$lib/utils/apiResponse.js';
 import { API_MESSAGES } from '$lib/constants/api.js';
 import { DATABASE, getDB, JWT_CONFIG } from '$lib/server/config.js';
 
-export async function POST({ request, cookies }) {
+export const POST = async ({ request, cookies }) => {
 	try {
 		const { email, password } = await request.json();
 
@@ -59,4 +59,4 @@ export async function POST({ request, cookies }) {
 		if (err.status) throw err;
 		throw error(500, API_MESSAGES.ERRORS.LOGIN_FAILED);
 	}
-}
+};

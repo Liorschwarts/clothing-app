@@ -1,7 +1,7 @@
 import { getLikeRoute, getItemApiRoute, ROUTES } from '$lib/constants/routes.js';
 import { API_MESSAGES } from '$lib/constants/api.js';
 
-async function apiCall(url, options = {}) {
+const apiCall = async (url, options = {}) => {
 	const response = await fetch(url, {
 		headers: { 'Content-Type': 'application/json' },
 		...options
@@ -14,7 +14,7 @@ async function apiCall(url, options = {}) {
 
 	const result = await response.json();
 	return result.data || result;
-}
+};
 
 export const loginUser = (email, password) =>
 	apiCall(ROUTES.API.AUTH.LOGIN, {

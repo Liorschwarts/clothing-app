@@ -21,7 +21,7 @@
   
   $: isOpen = $modals.addItem?.isOpen || false;
   
-  async function handleSubmit() {
+   const handleSubmit = async () => {
     error = '';
     loading = true;
     
@@ -42,7 +42,7 @@
     }
   }
   
-  function handleClose() {
+  const handleClose = () => {
     formData = { ...INITIAL_FORM_DATA };
     error = '';
     modals.close('addItem');

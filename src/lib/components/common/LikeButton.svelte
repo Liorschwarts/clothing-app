@@ -7,7 +7,7 @@
   export let disabled = false;
   export let size = 'normal';
   
-  function getClasses() {
+  const getClasses = () => {
     const base = 'flex items-center gap-2 transition-colors';
     const sizeClass = size === 'large' 
       ? 'px-6 py-3 rounded-lg' 
@@ -16,14 +16,14 @@
     return `${base} ${sizeClass}`;
   }
   
-  function getText() {
+  const getText = () => {
     if (size === 'large') {
       return isLiked ? UI_TEXTS.LIKES.REMOVE_FROM_FAVORITES : UI_TEXTS.LIKES.ADD_TO_FAVORITES;
     }
     return isLiked ? UI_TEXTS.LIKES.LIKED : UI_TEXTS.LIKES.LIKE;
   }
   
-  function getIconSize() {
+  const getIconSize = () => {
     return size === 'large' ? 20 : 16;
   }
 </script>

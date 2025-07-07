@@ -8,12 +8,12 @@ import { API_MESSAGES } from '$lib/constants/api.js';
 
 const EMPTY_STATE = { user: null, likes: [] };
 
-function clearAuth(cookies) {
+const clearAuth = (cookies) => {
 	cookies.delete(JWT_CONFIG.COOKIE_NAME, { path: JWT_CONFIG.COOKIE_OPTIONS.path });
 	return EMPTY_STATE;
-}
+};
 
-export async function load({ cookies }) {
+export const load = async ({ cookies }) => {
 	const token = cookies.get(JWT_CONFIG.COOKIE_NAME);
 	if (!token) return EMPTY_STATE;
 
@@ -54,4 +54,4 @@ export async function load({ cookies }) {
 		console.error('Layout load error:', err);
 		throw error(500, API_MESSAGES.ERRORS.DATABASE_ERROR);
 	}
-}
+};

@@ -8,7 +8,7 @@ import { API_MESSAGES } from '$lib/constants/api.js';
 import { CATEGORY_TYPES } from '$lib/constants/categories.js';
 import { DATABASE, getDB } from '$lib/server/config.js';
 
-export async function GET() {
+export const GET = async () => {
 	try {
 		const db = await getDB();
 
@@ -34,9 +34,9 @@ export async function GET() {
 		console.error('Failed to get items:', err);
 		throw error(500, API_MESSAGES.ERRORS.LOAD_ITEMS_FAILED);
 	}
-}
+};
 
-export async function POST({ request, cookies }) {
+export const POST = async ({ request, cookies }) => {
 	try {
 		const userId = await requireAuth(cookies);
 		const itemData = await request.json();
@@ -82,4 +82,4 @@ export async function POST({ request, cookies }) {
 		if (err.status) throw err;
 		throw error(500, API_MESSAGES.ERRORS.CREATE_ITEM_FAILED);
 	}
-}
+};

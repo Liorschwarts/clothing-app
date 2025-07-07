@@ -6,7 +6,7 @@
   export let field;
   export let value = '';
   
-  function handleInput(event) {
+  const handleInput = (event) => {
     value = event.target.value;
   }
 </script>

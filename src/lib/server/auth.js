@@ -4,7 +4,7 @@ import { error } from '@sveltejs/kit';
 import { JWT_CONFIG } from './config.js';
 import { API_MESSAGES } from '$lib/constants/api.js';
 
-export async function requireAuth(cookies) {
+export const requireAuth = async (cookies) => {
 	const token = cookies.get(JWT_CONFIG.COOKIE_NAME);
 	if (!token) {
 		throw error(401, API_MESSAGES.ERRORS.AUTH_REQUIRED);
@@ -16,4 +16,4 @@ export async function requireAuth(cookies) {
 	} catch {
 		throw error(401, API_MESSAGES.ERRORS.INVALID_TOKEN);
 	}
-}
+};

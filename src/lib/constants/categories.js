@@ -31,12 +31,12 @@ export const CATEGORY_NAMES = {
 	[CATEGORY_TYPES.GENERAL]: 'General'
 };
 
-export function getCategoryIcon(category) {
+export const getCategoryIcon = (category) => {
 	return CATEGORY_ICONS[category] || CATEGORY_ICONS[CATEGORY_TYPES.GENERAL];
-}
+};
 
-export function getCategoryName(category) {
+export const getCategoryName = (category) => {
 	return CATEGORY_NAMES[category] || CATEGORY_NAMES[CATEGORY_TYPES.GENERAL];
-}
+};
 
 export const CATEGORIES_LIST = Object.values(CATEGORY_TYPES);

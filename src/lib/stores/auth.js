@@ -3,23 +3,23 @@ import { writable } from 'svelte/store';
 export const user = writable(null);
 export const userLikes = writable([]);
 
-export function setUser(userData) {
+export const setUser = (userData) => {
 	user.set(userData);
-}
+};
 
-export function setUserLikes(likes) {
+export const setUserLikes = (likes) => {
 	userLikes.set(Array.isArray(likes) ? likes : []);
-}
+};
 
-export function addLike(itemId) {
+export const addLike = (itemId) => {
 	userLikes.update((likes) => (likes.includes(itemId) ? likes : [...likes, itemId]));
-}
+};
 
-export function removeLike(itemId) {
+export const removeLike = (itemId) => {
 	userLikes.update((likes) => likes.filter((id) => id !== itemId));
-}
+};
 
-export function logout() {
+export const logout = () => {
 	user.set(null);
 	userLikes.set([]);
-}
+};

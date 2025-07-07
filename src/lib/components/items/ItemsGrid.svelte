@@ -11,7 +11,7 @@
 
   const actions = createItemActions();
 
-  function onDelete(item) {
+  const onDelete = (item) => {
     actions.handleDelete(item, null, (errorMessage) => {
       error = errorMessage;
       setTimeout(() => error = '', 3000);

@@ -8,18 +8,18 @@
   
   let formData = { email: '', password: '', name: '' };
   
-  function getFields() {
+  const getFields = () => {
     return mode === 'register' 
       ? [AUTH_FIELDS.name, AUTH_FIELDS.email, AUTH_FIELDS.password]
       : [AUTH_FIELDS.email, AUTH_FIELDS.password];
   }
   
-  function getButtonText() {
+  const getButtonText = () =>  {
     if (loading) return UI_TEXTS.AUTH.LOADING;
     return mode === 'login' ? UI_TEXTS.AUTH.LOGIN_BUTTON : UI_TEXTS.AUTH.REGISTER_BUTTON;
   }
   
-  function handleSubmit() {
+  const handleSubmit = () => {
     const submitData = mode === 'login' 
       ? { email: formData.email, password: formData.password }
       : { name: formData.name, email: formData.email, password: formData.password };

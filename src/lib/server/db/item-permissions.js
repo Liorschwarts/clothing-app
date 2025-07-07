@@ -4,7 +4,7 @@ import { error } from '@sveltejs/kit';
 import { DATABASE, getDB } from '../config.js';
 import { API_MESSAGES } from '$lib/constants/api.js';
 
-export async function requireItemOwnership(itemId, userId) {
+export const requireItemOwnership = async (itemId, userId) => {
 	if (!ObjectId.isValid(itemId)) {
 		throw error(400, API_MESSAGES.ERRORS.INVALID_ITEM_ID);
 	}
@@ -23,9 +23,9 @@ export async function requireItemOwnership(itemId, userId) {
 	}
 
 	return item;
-}
+};
 
-export async function getItemById(itemId) {
+export const getItemById = async (itemId) => {
 	if (!ObjectId.isValid(itemId)) {
 		throw error(400, API_MESSAGES.ERRORS.INVALID_ITEM_ID);
 	}
@@ -40,4 +40,4 @@ export async function getItemById(itemId) {
 	}
 
 	return item;
-}
+};

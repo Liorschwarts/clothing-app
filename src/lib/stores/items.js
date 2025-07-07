@@ -3,24 +3,24 @@ import { writable } from 'svelte/store';
 export const items = writable([]);
 export const loading = writable(false);
 
-export function setItems(itemsList) {
+export const setItems = (itemsList) => {
 	items.set(Array.isArray(itemsList) ? itemsList : []);
-}
+};
 
-export function addItem(newItem) {
+export const addItem = (newItem) => {
 	items.update((currentItems) => [newItem, ...currentItems]);
-}
+};
 
-export function updateItem(updatedItem) {
+export const updateItem = (updatedItem) => {
 	items.update((currentItems) =>
 		currentItems.map((item) => (item._id === updatedItem._id ? updatedItem : item))
 	);
-}
+};
 
-export function removeItem(itemId) {
+export const removeItem = (itemId) => {
 	items.update((currentItems) => currentItems.filter((item) => item._id !== itemId));
-}
+};
 
-export function setLoading(isLoading) {
+export const setLoading = (isLoading) => {
 	loading.set(isLoading);
-}
+};

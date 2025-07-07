@@ -33,7 +33,7 @@ export const QUERY_OPTIONS = {
 	}
 };
 
-export async function getDB() {
+export const getDB = async () => {
 	const client = await clientPromise;
 	return client.db(DATABASE.NAME);
-}
+};

@@ -1,6 +1,6 @@
 import { writable } from 'svelte/store';
 
-function createModalStore() {
+const createModalStore = () => {
 	const { subscribe, update } = writable({});
 
 	return {
@@ -18,6 +18,6 @@ function createModalStore() {
 				[modalId]: { isOpen: false, data: null }
 			}))
 	};
-}
+};
 
 export const modals = createModalStore();
